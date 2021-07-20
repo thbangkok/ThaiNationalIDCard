@@ -1,4 +1,4 @@
-﻿
+
 namespace ThaiNationalIDCard
 {
     interface IAPDU_THAILAND_IDCARD
@@ -28,5 +28,10 @@ namespace ThaiNationalIDCard
 
         // photo
         byte[][] EF_CARD_PHOTO { get; set; }
+
+        byte[] EF_CHIPNO { get; set; }
+        byte[] EF_BP1NO { get; set; }
+        byte[] EF_ISSUER_CODE { get; set; }
+        byte[] EF_VERSION { get; set; }
     }
 }
