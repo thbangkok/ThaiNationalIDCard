@@ -66,7 +66,7 @@ namespace ThaiNationalIDCard
         public byte[] EF_CHIPNO
         {
             //เลขรหัสกำกับใต้รูป
-            //Offset 2541 = HEX 1619 = 0x16, 0x19
+            //Offset 5657 = HEX 1619 = 0x16, 0x19
             get
             {
                 return new byte[] { 0x80, 0xb0, 0x16, 0x19, 0x02, 0x00, 0x0e }; 
