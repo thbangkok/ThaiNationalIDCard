@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 
 namespace ThaiNationalIDCard
 {
@@ -23,12 +23,22 @@ namespace ThaiNationalIDCard
 
         public abstract byte[] APDU_GET_RESPONSE();
 
+        //Version
+        public byte[] EF_VERSION
+        {
+            get
+            {
+                return new byte[] { 0x80, 0xb0, 0x00, 0x00, 0x02, 0x00, 0x04 }; 
+            }
+            set { }
+        }
+
         // Citizen ID
         public byte[] EF_CID
         {
             get
             {
-                return new byte[] { 0x80, 0xb0, 0x00, 0x04, 0x02, 0x00, 0x0d };
+                return new byte[] { 0x80, 0xb0, 0x00, 0x04, 0x02, 0x00, 0x0d }; 
             }
             set { }
         }
@@ -38,17 +48,46 @@ namespace ThaiNationalIDCard
         {
             get
             {
-                return new byte[] { 0x80, 0xb0, 0x00, 0x11, 0x02, 0x00, 0xd1 };
+                return new byte[] { 0x80, 0xb0, 0x00, 0x11, 0x02, 0x00, 0xd1 }; 
             }
             set { }
-        } 
+        }
+
+        //หมายเลขคำร้อง
+        public byte[] EF_BP1NO
+        {
+            get
+            {
+                return new byte[] { 0x80, 0xb0, 0x00, 0xE2, 0x02, 0x00, 0x14 }; 
+            }
+            set { }
+        }
+        //Chipno
+        public byte[] EF_CHIPNO
+        {
+            //เลขรหัสกำกับใต้รูป
+            //Offset 2541 = HEX 1619 = 0x16, 0x19
+            get
+            {
+                return new byte[] { 0x80, 0xb0, 0x16, 0x19, 0x02, 0x00, 0x0e }; 
+            }
+            set { }
+        }
+        public byte[] EF_ISSUER_CODE
+        {
+            get
+            {
+                return new byte[] { 0x80, 0xb0, 0x01, 0x5a, 0x02, 0x00, 0x0d };
+            }
+            set { }
+        }
 
         // Address
         public byte[] EF_ADDRESS
         {
             get
             {
-                return new byte[] { 0x80, 0xb0, 0x15, 0x79, 0x02, 0x00, 0x64 };
+                return new byte[] { 0x80, 0xb0, 0x15, 0x79, 0x02, 0x00, 0x64 }; 
             }
             set { }
         } 
@@ -68,7 +107,7 @@ namespace ThaiNationalIDCard
         {
             get
             {
-                return new byte[] { 0x80, 0xb0, 0x00, 0xf6, 0x02, 0x00, 0x64 };
+                return new byte[] { 0x80, 0xb0, 0x00, 0xf6, 0x02, 0x00, 0x64 }; 
             }
             set { }
         }
